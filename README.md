@@ -1,68 +1,80 @@
+
+
+---
+
 # Drug Labels & Side Effects — SQL Analysis
 
 ## 📊 Key Insights
 
-* Some manufacturers demonstrate consistently higher approval success rates (e.g., Johnson & Johnson in Antidepressants), while others struggle with higher rejection levels (e.g., GlaxoSmithKline).
-* Between **2000–2015**, antifungal approvals peaked with one manufacturer leading in volume.
-* **Oral (Enteral) administration** dominates, but Parenteral (IV/IM) and Topical routes are still significant.
-* Multiple manufacturers have drugs with pregnancy or fertility warnings. As a managing body, this requires closer scrutiny for compliance and patient safety monitoring.*
-* Variations in price and expiry timelines across manufacturers suggest opportunities to optimize supply chains and forecast potential drug shortages.
-* X-Large manufacturers (>150 drugs) dominate the portfolio volume, but Medium manufacturers (<135 drugs) may present niche approvals that balance the portfolio risk.
+* Certain manufacturers show consistently higher approval success rates (e.g., Johnson & Johnson in Antidepressants), while others struggle with more rejections (e.g., GlaxoSmithKline).
+* Between **2000–2015**, antifungal approvals peaked, with one manufacturer leading in volume.
+* **Oral (Enteral) administration** dominates, though Parenteral (IV/IM) and Topical routes remain significant.
+* Several manufacturers have drugs with pregnancy or fertility warnings — an area requiring close regulatory and safety oversight.
+* Price and expiry variations across manufacturers highlight opportunities for supply chain optimization and shortage forecasting.
+* X-Large manufacturers (>150 drugs) dominate portfolio volume, while Medium manufacturers (<135 drugs) provide niche approvals that diversify risk.
 
 ---
-## 📈 Interactive Dashboard
 
-To complement the SQL analysis, I built an interactive Tableau dashboard that visualizes key trends across drug approvals, manufacturer performance, drug classes, administration routes, and safety warnings.
+## 📈 📊 Interactive Dashboards (Tableau & Power BI)
 
-🔗 **Explore the dashboard here**: [View on Tableau Public](https://public.tableau.com/views/DrugLabelsSideEffectsSQLAnalysis/Dashboard1?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+To complement the SQL analysis, I built **interactive dashboards** in both **Tableau** and **Power BI**, visualizing trends in approvals, manufacturers, administration routes, and safety flags.
+
+### 🔗 Tableau (Public, Interactive)
+
+[View Dashboard on Tableau Public](https://public.tableau.com/views/DrugLabelsSideEffectsSQLAnalysis/Dashboard1?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+
+<img width="1920" height="1080" alt="Tableau Dashboard" src="https://github.com/user-attachments/assets/2dae8d29-d05a-48a3-8efc-893c0d152567" />  
+
+### 🖼️ Power BI (Screenshot)
+
+*(Due to licensing, the Power BI dashboard cannot be shared interactively. Screenshot shown below for demonstration.)*
+
+<img width="1654" height="991" alt="power BI screenshot" src="https://github.com/user-attachments/assets/f05f677a-53ee-417a-9a05-0999f8ca45eb" />
 
 
-### Dashboard Highlights:
+**Dashboard Highlights (both versions):**
 
-* **Manufacturer Performance**: Visual comparison of approval success rates by drug class.
-* **Administration Routes**: Distribution of Enteral, Parenteral, and Topical drugs.
-* **Safety Flags**: Identification of drugs with pregnancy or fertility-related warnings.
-* **Approval Trends (2000–2015)**: Focused view on antifungal drug approvals over time.
+* Manufacturer performance by approval success rate and drug class
+* Distribution of administration routes (Enteral, Parenteral, Topical)
+* Safety alerts (pregnancy & fertility warnings)
+* Approval trends (2000–2015 antifungal focus)
 
-> 🛠️ *Built with Tableau using SQL-extracted data for business and clinical decision support.*
-
-
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/2dae8d29-d05a-48a3-8efc-893c0d152567" />
+> 🛠️ Built with **SQL + Tableau/Power BI** for business and clinical decision support
 
 ---
-## 📌 Overview
 
-This project explores the **Drug Labels & Side Effects dataset** from Kaggle. Using SQL, I performed exploratory analysis to answer business and clinical questions around manufacturers, drug classes, approvals, and safety concerns.
+## 📌 Project Overview
 
-The goal is to demonstrate **SQL querying, categorization, aggregation, and data storytelling** for real-world insights.
+This project analyzes the **Drug Labels & Side Effects dataset** from Kaggle. Using SQL, I answered real-world business and clinical questions about manufacturers, drug classes, approvals, and safety concerns — and then visualized the findings in Tableau and Power BI.
+
+Goal: demonstrate **SQL querying, data categorization, aggregation, and business-oriented storytelling**.
 
 ---
 
 ## ⚙️ Dataset
 
 * **Source**: [Drug Labels & Side Effects Dataset](https://www.kaggle.com/datasets/pratyushpuri/drug-labels-and-side-effects-dataset-1400-records/data)
-* **Size**: 1,400 rows, multiple attributes (drug name, manufacturer, class, approval year, price, expiry, warnings, contraindications, administration route).
-* **Missing Data**: N/A
+* **Size**: \~1,400 rows (drug name, manufacturer, class, approval year, price, expiry, warnings, contraindications, route)
+* **Missing Data**: Not significant
+
 ---
 
+## 🧠 Skills Demonstrated
 
-## 🧠 Key Skills Demonstrated
-
-* **SQL Joins, Filtering, Grouping, Aggregations**
-* **Case Statements & Conditional Categorization**
-* **Window Functions for Percentages**
-* **Business-Oriented Data Storytelling**
+* SQL (Joins, Filtering, Grouping, Aggregations)
+* Case statements & conditional categorization
+* Window functions for percentages
+* Data storytelling with Tableau & Power BI
 
 ---
 
 ## 🚀 How to Run
 
 1. Clone this repo
-2. Load the dataset into a relational database (e.g., PostgreSQL, MySQL, SQLite)
-3. Run queries in your SQL editor of choice
+2. Load dataset into a relational database (PostgreSQL, MySQL, or SQLite)
+3. Run the SQL queries provided
 
 ---
-
 
 ## ❓ Business & Clinical Questions Answered
 
@@ -158,7 +170,8 @@ ORDER BY approval_status;
 ```
 
 ---
-### 7. Which drugs list pregnancy or fertility warnings/contraindications?
+
+### 7. Manufacturer & drug class distribution by approval status
 
 ```sql
 SELECT 
@@ -170,4 +183,6 @@ FROM realistic_drug_labels_side_effects
 GROUP BY manufacturer, drug_class, approval_status
 ORDER BY manufacturer, drug_class, approval_status;
 ```
+
 ---
+
